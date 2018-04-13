@@ -1,0 +1,30 @@
+{Задача 2: Сделать так, чтобы последние элементы массива после сдвига переместились в начало массива. Полученный после смещения
+массив выводится на каждой итерации}
+var a,b:array [1..100] of integer;
+i,j,n,k: integer;
+begin
+  randomize;
+  readln(n);
+  readln(k);
+  for i:=1 to n do begin
+    a[i]:=random(1999)-999;
+    writeln(a[i]);
+  end;
+  for i:=n-k+1 to n do begin {Создаём доп массив, в котором будут последние k элементов}
+    for j:=1 to k do begin
+      if (i-j=n-k) then b[j]:=a[i];
+    end;
+  end;
+  for i:=n downto k+1 do begin
+    a[i]:=a[i-k];
+    writeln(a[i]);
+  end;
+  for i:=1 to k do begin
+    for j:=1 to k do begin
+      if (i=j) then a[i]:=b[j];
+    end;
+  end;
+  for i:=1 to n do
+    writeln(a[i]);
+  readln;
+end.
