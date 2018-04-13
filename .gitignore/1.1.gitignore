@@ -1,0 +1,22 @@
+{Задача 1: Сдвинуть элементы массива в указанном напрвлении, в нашем случае вправо, на количество, указанное пользователем.
+Освободившиеся ячейки заполнить нулями. После каждой итерации выводить массив}
+var a:array [1..100] of integer;
+i,n,k: integer;
+begin
+  randomize;
+  readln(n);{размер массива}
+  readln(k);{смещение}
+  for i:=1 to n do begin
+    a[i]:=random(1999)-999;
+    writeln(a[i]);
+  end;
+  for i:=n downto k+1 do begin
+    a[i]:=a[i-k];
+    writeln(a[i]);
+  end;
+  for i:=1 to k do
+    a[i]:=0;
+  for i:=1 to n do
+    writeln(a[i]);
+  readln;
+end.
