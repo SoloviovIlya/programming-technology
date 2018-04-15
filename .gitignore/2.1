@@ -1,0 +1,24 @@
+{В одномерном массиве целых чисел определить 2 наименьших элемента. Они могут быть равны, могут отличаться.}
+var a:array [1..100] of integer;
+i,n,t,min1,min2:integer;
+begin
+  readln(n);
+  t:=1;
+  for i:=1 to n do begin
+    a[i]:=random(1999)-999;
+    writeln(a[i]);
+  end;
+  min1:=a[1];
+  for i:=1 to n do begin
+    if (a[i]<min1) then begin
+      min1:=a[i];
+      t:=i;
+    end;
+  end;
+  min2:=a[2];
+  for i:=1 to n do begin
+    if (a[i]<min2) and (i<>t) then min2:=a[i];
+  end;
+  writeln(min1, ' ', min2);
+  readln;
+end.
