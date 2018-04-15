@@ -1,0 +1,23 @@
+{В одномерном массиве целых чисел вычислить сумму модулей элементов массива, расположенных сразу после первого отрицательного элемента.}
+var a:array [1..100] of integer;
+i,n,s,t:integer;
+begin
+  randomize;
+  readln(n);
+  s:=0;
+  for i:=1 to n do begin
+    a[i]:=random(1999)-999;
+    writeln(a[i]);
+  end;
+  for i:=1 to n do begin
+    if (a[i]<0) then begin
+      t:=i;
+      break;
+    end else writeln('Отрицательных элементов нет');
+  end;
+  for i:= t to n do begin
+    if (a[i]>0) then s:=s+a[i] else s:=s+a[i]*(-1);
+  end;
+  writeln(s);
+  readln;
+end.
