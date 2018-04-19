@@ -1,0 +1,20 @@
+{В одномерном массиве целых чисел необходимо сократить массив, удалив из него все элементы, величина которых находится в интервале от с
+до b. Высвободившееся пространство заполнить нулями.}
+var a:array [1..100] of integer;
+i,n,c,b:integer;
+begin
+  randomize;
+  readln(n);
+  readln(c);
+  readln(b);
+  for i:=1 to n do begin
+    a[i]:=random(1999)-999;
+    writeln(a[i]);
+  end;
+  for i:=1 to n do begin
+    if (a[i]>c) and (a[i]<b) then a[i]:=0;
+  end;
+  for i:=1 to n do
+    writeln(a[i]);
+  readln;
+end.
