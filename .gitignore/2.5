@@ -1,0 +1,30 @@
+{Одномерный массив целых чисел заполнить случайными числами таким образом, чтобы все числа были различными по модулю. Вывести макс по модулю
+элемент.}
+var a,b:array [1..100] of integer;
+i,n,j,max:integer;
+begin
+  randomize;
+  readln(n);
+  for i:=1 to n do begin
+    a[i]:=random(1999)-999;
+    writeln(a[i]);
+  end;
+  for i:=1 to n do begin
+    for j:=1 to n do begin
+      if (i=j) then b[j]:=a[i];
+    end;
+  end;
+  for i:=1 to n do begin
+    for j:=1 to n do begin
+      if ((a[i]=b[j]) or (a[i]=(-1)*b[j])) and (i<>j) then b[j]:=b[j]+1;
+    end;
+  end;
+  for j:=1 to n do
+    writeln(b[j]);
+  max:=b[j];
+  for j:=1 to n do begin
+    if (b[j]>max) or ((-1)*b[j]>max) then max:=b[j];
+  end;
+  writeln(max);
+  readln;
+end.
