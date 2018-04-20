@@ -1,0 +1,24 @@
+{Дана матрица целых чисел, поменять местами два случайных столбца}
+var a:array [1..100,1..100] of integer;
+i,j,n,t,b,c:integer;
+begin
+  readln(n);
+  randomize;
+  for i:=1 to n do begin
+    for j:=1 to n do begin
+      a[i,j]:=random(1999)-999;
+    end;
+    writeln(a[i,j]);
+  end;
+  b:=random(n);
+  c:=random(n);
+  for i:=1 to n do begin
+    t:=a[i,b];
+    a[i,b]:=a[i,c];
+    a[i,c]:=t;
+  end;
+  for i:=1 to n do
+    for j:=1 to n do
+      writeln(a[i,j]);
+  readln;
+end.
