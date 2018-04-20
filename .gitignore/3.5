@@ -1,0 +1,32 @@
+[Дана матрица целых чисел в диапазоне от 0 до 999. Посчитать количество однозначных, двузначных и трёхзначных элементов этой матрицы.]
+var a:array [1..100,1..100] of integer;
+b:array [1..100] of integer;
+i,j,m,n,t,k,l,c:integer;
+begin
+  readln(n);
+  readln(m);
+  randomize;
+  for i:=1 to n do begin
+    for j:=1 to n do begin
+      a[i,j]:=random(999);
+      writeln(a[i,j]);
+    end;
+  end;
+  t:=0;k:=0;l:=0;
+  for i:=1 to n do begin
+    for j:=1 to m do begin
+      if (a[i,j]<10) then t:=t+1;
+      if (a[i,j]>10) then begin
+        c:=0;
+        while a[i,j]>0 do begin
+          a[i,j]:=a[i,j] div 10;
+          c:=c+1;
+        end;
+        if (c=2) then k:=k+1;
+        if (c=3) then l:=l+1;
+      end;
+    end;
+  end;
+  writeln(t, ' ', k, ' ',l);
+  readln;
+end.
