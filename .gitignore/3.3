@@ -1,0 +1,19 @@
+[Дана матрица целых чисел. Найти все положительные элементы главной диагонали этой матрицы.]
+var a:array [1..100,1..100] of integer;
+i,j,min,n:integer;
+begin
+  readln(n);
+  randomize;
+  for i:=1 to n do begin
+    for j:=1 to n do begin
+      a[i,j]:=random(1999)-999;
+      writeln(a[i,j]);
+    end;
+  end;
+  for i:=1 to n do begin
+    for j:=1 to n do begin
+      if (i=j) and (a[i,j]>0) then writeln (a[i,j]);
+    end;
+  end;
+  readln;
+end.
