@@ -1,0 +1,25 @@
+[Дана матрица целых чисел. Вывести на экран индексы минимальных элементов матрицы.]
+var a:array [1..100,1..100] of integer;
+i,j,min,n:integer;
+begin
+  readln(n);
+  randomize;
+  for i:=1 to n do begin
+    for j:=1 to n do begin
+      a[i,j]:=random(1999)-999;
+      writeln(a[i,j]);
+    end;
+  end;
+  min:=a[1,1];
+  for i:=1 to n do begin
+    for j:=1 to n do begin
+      if a[i,j]<min then min:=a[i,j];
+    end;
+  end;
+  for i:=1 to n do begin
+    for j:=1 to n do begin
+      if a[i,j]=min then writeln(i, ' ',j);
+    end;
+  end;
+  readln;
+end.
