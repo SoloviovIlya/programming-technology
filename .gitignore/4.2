@@ -1,0 +1,14 @@
+{Задана строка. Необходимо найти указанную подстроку и заменить на новую.}
+var s,m,n:string;
+i,k:integer;
+begin
+  readln(s);
+  readln(m);
+  readln(n);
+  k:=length(m);
+  i:=pos(m,s);
+  delete(s,i,k);
+  insert(n,s,i);
+  writeln(s);
+  readln;
+ end.
