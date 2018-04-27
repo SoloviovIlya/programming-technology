@@ -1,0 +1,38 @@
+{Задали с клавиатуры 2 равноразмерные матрицы, необходимо в ячейке третьей матрицы точно такой же размерности записать большие элементы из соответствующих
+ячеек первых двух матриц}
+var a,b,c:array [1..100,1..100] of integer;
+i,j,m,n,t,k,l,p,o:integer;
+begin
+  readln(n);
+  readln(m);
+  randomize;
+  writeln('Первая матрица :');
+  for i:=1 to n do begin
+    for j:=1 to m do begin
+      a[i,j]:=random(1999)-999;
+      writeln(a[i,j]);
+    end;
+  end;
+  writeln('Вторая матрица :');
+  for k:=1 to n do begin
+    for l:= 1 to m do begin
+      b[k,l]:=random(1999)-999;
+      writeln(b[k,l]);
+    end;
+  end;
+  for p:=1 to n do begin
+    for o:=1 to m do begin
+      for i:=1 to n do begin
+        for j:=1 to m do begin
+          for k:=1 to n do begin
+            for l:=1 to m do begin
+              if (i=k) and (j=l) and (a[i,j]>b[k,l]) then begin c[p,o]:=a[i,j]; writeln(c[p,o]);end;
+              if (i=k) and (j=l) and (a[i,j]<b[k,l]) then begin c[p,o]:=b[k,l]; writeln(c[p,o]);end;
+            end;
+          end;
+        end;
+      end;
+    end;
+   end;
+  readln;
+end.
