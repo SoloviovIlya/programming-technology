@@ -1,0 +1,24 @@
+{Задана строка из лат. алфавита. Требуется удалить из неё повторяющиеся символы и пробелы.}
+var s:string;
+i,n,j,l:integer;
+k:char;
+begin
+  readln(s);
+  for i:=1 to length(s) do begin
+    if (s[i]=' ') then begin
+      for j:=i to length(s) do
+        s[j]:=s[j+1];
+    end;
+  end;
+  for i:=1 to length(s) do begin
+    k:=s[i];
+      for j:=i+1 to length(s) do begin
+        if s[j]=k then begin
+          for l:=j to length(s) do
+            s[l]:=s[l+1];
+        end;
+      end;
+    end;
+  writeln(s);
+  readln;
+end.
