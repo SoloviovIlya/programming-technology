@@ -1,0 +1,17 @@
+{Дана строка, содержащая буквы и целые числа, а также иные символы. Необходимо все числа, указанные в строке поместить в отдельный массив.}
+var s,m:string;
+i,j:integer;
+begin
+  readln(s);
+  j:=1;
+  for i:=1 to length(s) do begin
+    if (s[i]='0') or (s[i]='1') or (s[i]='2') or
+    (s[i]='3') or (s[i]='4') or (s[i]='5') or (s[i]='6')
+    or (s[i]='7') or (s[i]='8') or (s[i]='9') then begin
+      m[j]:=s[i];
+      writeln(m[j]);
+      j:=j+1;
+    end;
+  end;
+  readln;
+end.
