@@ -1,0 +1,17 @@
+{Дан текст определить процентное соотношение строчных и прописных букв к числу символов в тексте.}
+uses Crt;
+var s:string;
+i,n,m:integer;
+a,b:float;
+begin
+  readln(s);
+  for i:=1 to length(s) do begin
+    if s[i] in ['A'..'Z'] then Inc(m);
+    if s[i] in ['a'..'z'] then Inc(n);
+  end;
+  a:=(100*m)/length(s);
+  b:=(100*n)/length(s);
+  writeln('Процент заглавных букв: ', a);
+  writeln('Процент прописных букв: ', b);
+  readln;
+end.
