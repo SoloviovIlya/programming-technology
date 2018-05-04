@@ -1,0 +1,50 @@
+{Дана строка, состоящая из прописных и заглавных букв. Посчитать кол-во заглавных и прописных букв. Если заглавная стоит в начале слова,
+заменитть все буквы на заглавные и посчитать их количество, если с прописная- заменить все на прописные и посчитать их количество.}
+uses Crt;
+var s:string;
+x,y: array [1..26] of char;
+n,m,i,j,k:integer;
+begin
+  readln(s);
+  x[1]:='A';
+  y[1]:='a';
+  for i:=2 to 26 do
+    x[i]:=succ(x[i-1]);
+  for j:=2 to 26 do
+    y[j]:= succ(y[j-1]);
+  for k:=1 to length(s) do begin
+    if s[k] in ['A'..'Z'] then Inc(n);
+    if s[k] in ['a'..'z'] then Inc(m);
+  end;
+  writeln('Кол-во заглавных букв до замены: ',n);
+  writeln('Кол-во прописных букв до замены: ',m);
+  if s[1] in ['A'..'Z'] then begin
+    for k:=2 to length(s) do begin
+      if s[k] in ['a'..'z'] then begin
+        for j:=1 to 26 do begin
+          for i:=1 to 26 do begin
+            if (y[j]=s[k]) and (i=j) then s[k]:=x[i];
+          end;
+        end;
+      end;
+    end;
+    n:=m+n;
+    writeln(s);
+    writeln('Кол-во заглавных после замены: ', n, ',  а прописных:0');
+  end else
+  if s[1] in ['a'..'z'] then begin
+    for k:=2 to length(s) do begin
+      if s[k] in ['A'..'Z'] then begin
+        for i:=1 to 26 do begin
+          for j:=1 to 26 do begin
+            if (s[k]=x[i]) and (i=j) then s[k]:=y[j];
+          end;
+        end;
+      end;
+    end;
+    m:=m+n;
+    writeln(s);
+    writeln('Кол-во прописных после замены: ', m, ',  а заглавных:0');
+  end;
+  readln;
+end.
