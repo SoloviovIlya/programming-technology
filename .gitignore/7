@@ -1,0 +1,13 @@
+{Необходимо посчитать кол-во единиц в двоичной записи числа n.}
+var
+n,k: integer;
+begin
+  readln(n);
+  k:=0;
+  while n>0 do begin
+    if (n mod 2=1) then k:=k+1;
+    n:=n div 2;
+  end;
+  writeln(k);
+  readln;
+end.
