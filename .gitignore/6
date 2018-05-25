@@ -1,0 +1,19 @@
+{Дана бесконечная посл-ть.Необходимо, в этой посл-ти находить "триады" символов.
+Подпункты задания:1.Посл-ть генерируется рандомом. 2.Подсчитать кол-во "триад" разных символов.}
+var
+a: array [1..100] of char;
+n,i,j,k: integer;
+begin
+  readln(n);
+  for i:=1 to n do begin
+    j:=random(3);
+    if j=0 then a[i]:='a';
+    if j=1 then a[i]:='b';
+    if j=2 then a[i]:='c';
+    writeln(a[i]);
+  end;
+  for i:=1 to n do
+    if (a[i]='a') and (a[i]='b') and (a[i]='c') then k:=k+1;
+  writeln(k);
+  readln;
+end.
