@@ -1,0 +1,31 @@
+
+uses crt;
+var s1,s2:array[1..100] of string;
+    i,j:byte;
+    n:integer;
+    x,y:string;
+begin
+readln(n);
+for i:=1 to n do
+  readln(s1[i]);
+for i:=1 to n do
+ begin
+  s2[i]:='';
+  for j:=1 to length(s1[i]) do
+  s2[i]:=s2[i]+Upcase(s1[i][j]);
+ end;
+for i:=1 to n-1 do      
+for j:=1 to n-1 do
+if (s2[j]>s2[j+1]) then
+   begin
+    x:=s1[j];
+    s1[j]:=s1[j+1];
+    s1[j+1]:=x;
+    y:=s2[j];
+    s2[j]:=s2[j+1];
+    s2[j+1]:=y;
+   end;
+for i:=1 to n do
+writeln(s1[i],' ');
+readln
+end.
