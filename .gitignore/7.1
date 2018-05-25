@@ -1,0 +1,26 @@
+//В текстовый файл построчно записаны имена студентов и их возраст.
+Вывести на экран всех студентов, чей возраст превышает 20 лет.//
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+	FILE * pFile;
+	FILE * tFile;
+  str mass[10];
+  int i;
+  pFile = fopen("C:\\in.txt", "r");
+  for (i = 0; i<10; ++i)
+	{
+		fscanf(pFile, "%c", &mass[i]);
+	};
+  	fclose(pFile);
+    tFile = fopen("3sim1.txt", "w");
+	for (i = 0; i<10; ++i)
+	{
+  if (mass[i+1]=="20")
+  {
+  fprintf(tFile, " %c ", mass[i]);
+  };
+    return EXIT_SUCCESS;
+}
