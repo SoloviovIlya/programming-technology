@@ -1,0 +1,21 @@
+//создать текстовый файл и записать внего построчно данные, которые вводятся пользователем. 
+Пустая строка принимается за Окончание файла.//
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+	FILE * tFile;
+  str mass[10];
+  int i;
+  for (i = 0; i<10; ++i)
+	{
+  scanf("%c", &mass[i]);
+  };
+   tFile = fopen("3sim1.txt", "w");
+	for (i = 0; i<10; ++i)
+	{
+  fprintf(tFile, " %c ", mass[i]);
+  };
+    return EXIT_SUCCESS;
+}
