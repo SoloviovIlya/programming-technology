@@ -1,0 +1,23 @@
+{Отсортировать массив строк по алфавиту.}
+var 
+    str: array[1..100] of string[20];
+    s: string[20];
+    i, j: byte;
+begin
+    readln(n);
+    for i:=1 to n do 
+        readln(str[i]); 
+ 
+    for i:=1 to n do write(str[i], ' ');
+    for i:=1 to n-1 do
+        for j:=1 to n-i do
+            if str[j][1] > str[j+1][1] then begin
+                s := str[j];
+                str[j] := str[j+1];
+                str[j+1] := s;
+            end;
+ 
+    writeln;
+    for i:=1 to n do write(str[i], ' ');
+    writeln;
+end.
